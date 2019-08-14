@@ -13,10 +13,10 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             self.options = Object.extend({
                 mapOptions: {
                     center: {
-                        lat: -34.397,
-                        lng: 150.644
+                        lat: 54.144529,
+                        lng: -3.8476843
                     },
-                    zoom: 8
+                    zoom: 5
                 },
                 mapSelector: '#cdc-map-canvas',
                 mapClass: typeof google !== "undefined" && typeof google.maps !== "undefined" ? google.maps : null,
@@ -44,7 +44,8 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
 
         resizeMap: function() {
             var self = this;
-            self.options.mapClass.event.trigger(self.mapElement, 'resize')
+            self.options.mapClass.event.trigger(self.mapElement, 'resize');
+            self._setMapBounds();
         },
 
         createMarkers: function( data, markerCallback ) {
@@ -126,14 +127,25 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             });
         },
 
+        setCenter: function (lat, lng) {
+            var self = this;
+
+            self.mapObject.setCenter(new google.maps.LatLng(
+                lat,
+                lng
+            ));
+
+            self.mapObject.setZoom(12);
+        },
+
         _createLocationObject: function() {
             var self = this;
 
             self.locationObject = {
-                center: {
-                    lat: self.options.mapOptions.center.lat,
-                    lng: self.options.mapOptions.center.lng
-                },
+                center: new google.maps.LatLng(
+                    self.options.mapOptions.center.lat,
+                    self.options.mapOptions.center.lng
+                ),
                 zoom: self.options.mapOptions.zoom
             }
         },
@@ -158,13 +170,22 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
         _setMapBounds: function() {
             var self = this;
 
-            // Ensure all of the markers are shown inside the bounds
-            // of the map object
-            self.mapBounds = new self.options.mapClass.LatLngBounds(self.bounds[0]);
-            self.bounds.each(function(item) {
-                self.mapBounds.extend(item);
-            });
-            self.mapObject.fitBounds(self.mapBounds);
+            if (self.bounds.length > 0) {
+                // Ensure all of the markers are shown inside the bounds
+                // of the map object
+                self.mapBounds = new self.options.mapClass.LatLngBounds(self.bounds[0]);
+                self.bounds.each(function(item) {
+                    self.mapBounds.extend(item);
+                });
+                self.mapObject.fitBounds(self.mapBounds);
+            } else {
+                self.mapObject.setCenter(new google.maps.LatLng(
+                    self.options.mapOptions.center.lat,
+                    self.options.mapOptions.center.lng
+                ));
+
+                self.mapObject.setZoom(self.options.mapOptions.zoom);
+            }
         }
 
     });

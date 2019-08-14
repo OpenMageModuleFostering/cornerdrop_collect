@@ -181,7 +181,13 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             self.els.searchList.addClassName(self.options.classes.hidden);
 
             if (self.geocoder) {
-                self.geocoder.geocode({ 'address': self.searchValue }, function geocoderResults(results, status) {
+                self.geocoder.geocode({
+                    'address': self.searchValue,
+                    'bounds': self._searchBounds(),
+                    'componentRestrictions': {
+                        'country': 'GB'
+                    }
+                }, function geocoderResults(results, status) {
                     if (status == self.options.geocoderStatus.OK) {
                         location.coords.latitude = results[0].geometry.location.lat();
                         location.coords.longitude = results[0].geometry.location.lng();
@@ -213,6 +219,20 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             } else {
                 throw '[CornerDrop Collect] Search class not found';
             }
+        },
+
+        /**
+         * The bounds by which the geocoding request should be restricted.
+         *
+         * @returns {google.maps.LatLngBounds}
+         * @private
+         */
+        _searchBounds: function () {
+            // United Kingdom and Northern Ireland
+            return new google.maps.LatLngBounds(
+                new google.maps.LatLng(49.86, -8.45),
+                new google.maps.LatLng(60.86, 1.78)
+            );
         },
 
         _createResult: function(item) {
@@ -281,7 +301,7 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
 
                     self._showResultsPage();
                 } else {
-                    self.displayResultsOnMap(self.options.searchClass.selected, self.setStore.bind(self));
+                    self.centerMapOnLocation(classCallback.lat, classCallback.lng);
                     self.error('No results were found');
                 }
             } else {
@@ -308,9 +328,22 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             self.options.gmapsClass.resizeMap();
 
             self.options.gmapsClass.deleteMarkers();
+
             if (data) {
                 self.options.gmapsClass.createMarkers(data, callback);
             }
+        },
+
+        centerMapOnLocation: function (lat, lng) {
+            var self = this;
+
+            // Setup the markers and ensure the map is displayed
+            self._hideElement(self.options.gmapsClass.mapElement, false);
+            self.options.gmapsClass.resizeMap();
+
+            self.options.gmapsClass.deleteMarkers();
+
+            self.options.gmapsClass.setCenter(lat, lng);
         },
 
         error: function(message) {

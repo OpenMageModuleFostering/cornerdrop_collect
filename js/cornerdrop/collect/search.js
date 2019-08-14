@@ -24,6 +24,9 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             }
 
             self.results = [];
+            self.query   = null;
+            self.lat     = null;
+            self.lng     = null;
 
             self._injectMarkup();
             self._applyObservers();
@@ -33,6 +36,10 @@ if (!window.CornerDrop.Collect) window.CornerDrop.Collect = {};
             var self = this;
 
             self.clear();
+
+            self.query = query;
+            self.lat   = lat;
+            self.lng   = long;
 
             new Ajax.Request(self.options.endpoint, {
                 method: "GET",
