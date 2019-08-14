@@ -1,0 +1,198 @@
+.cdc-panel:after,
+.cdc-search-container:after,
+.cdc-error:after,
+.cdc-search-results:after,
+.cdc-toggle-button:before {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.cdc-logo {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cdc-panel {
+    margin-bottom: 10px;
+}
+
+.cdc-info {
+    margin-bottom: 10px;
+}
+
+.cdc-search-container {
+    margin-bottom: 10px;
+}
+
+.cdc-search-button,
+.cdc-reset-button {
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.cdc-search-button {
+    background: transparent url(../images/search.png) no-repeat center;
+}
+
+.cdc-reset-button {
+    background: transparent url(../images/reset.png) no-repeat center;
+}
+
+.cdc-geolocation {
+    background: transparent url(../images/geolocation.png) no-repeat center;
+    cursor: pointer;
+}
+
+    .cdc-geolocation:hover {
+        opacity: 1;
+    }
+
+.cdc-geolocation,
+.cdc-search-button,
+.cdc-reset-button {
+    border: 0;
+    display: inline-block;
+    height: 30px;
+    text-indent: -9999px;
+    vertical-align: middle;
+    width: 30px;
+}
+
+.cdc-geolocation,
+.cdc-search-button {
+    opacity: .5;
+}
+
+.cdc-search-form {
+    display: inline-block;
+    position: relative;
+    max-width: calc(100% - 35px);
+    width: 365px;
+}
+
+.cdc-search-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.cdc-search-results ul {
+    display: block;
+}
+
+.cdc-result {
+    cursor: pointer;
+    display: none;
+    margin: 10px 0;
+}
+    .cdc-result:hover {
+        background-color: #dff4ff;
+    }
+
+.cdc-result-item-title {
+    color: #39C;
+    display: block;
+    font-weight: bold;
+}
+
+.cdc-result-item-body {
+    display: block;
+}
+
+.cdc-store {
+    clear: both;
+    padding: 20px 0;
+}
+
+.cdc-store-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cdc-map-container {
+    margin: 10px auto;
+}
+
+.cdc-map {
+    height: 300px;
+    width: 100%;
+}
+
+    .cdc-map:empty {
+        height: 0;
+    }
+
+.cdc-tc-container {
+    margin-bottom: 10px;
+}
+
+.cdc-tc-label {
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+/* Classes */
+.cdc-hidden {
+    display: none;
+}
+
+.cdc-error {
+    clear: both;
+    color: #df280a;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.cdc-show {
+    display: inherit;
+}
+
+.cdc-loading {
+    background-image: url('../images/ajax-loader.gif');
+}
+
+.cdc-active {
+    opacity: 1;
+}
+
+@media only screen and (min-width: 770px) {
+    .cdc-search-results {
+        float: left;
+        overflow: scroll;
+        max-height: 370px;
+        width: 35%;
+    }
+
+    .cdc-store {
+        clear: none;
+        float: left;
+        width: 35%;
+    }
+
+    .cdc-map-container {
+        float: right;
+        width: 65%;
+    }
+
+    .cdc-map {
+        height: 350px;
+    }
+
+    .cdc-result {
+        display: inherit;
+    }
+
+    /* This hides the pager for larger screens where it is not
+     * used. Conditional JS is therefore not required.
+     */
+    .js-cdc-results-pager {
+        display: none;
+    }
+}

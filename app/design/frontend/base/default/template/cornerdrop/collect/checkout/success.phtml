@@ -1,0 +1,4 @@
+<?php /** @var CornerDrop_Collect_Block_Checkout_Success $this  */ ?>
+<?php if ($this->isCornerDropOrder()): ?>
+    <p><?php echo $this->__("Thank you for choosing Click &amp; Collect with %s. You will receive an email with your parcel code to collect your order from your CornerDrop location. Simply present this and your PIN to pick up your parcel.", $this->getLogoHtml()) ?></p>
+<?php endif; ?>

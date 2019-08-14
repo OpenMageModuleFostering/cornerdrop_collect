@@ -1,0 +1,2 @@
+config:
+  default/cornerdrop_collect/settings/api_uri: https://testapi.cornerdrop.com

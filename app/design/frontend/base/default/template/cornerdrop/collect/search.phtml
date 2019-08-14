@@ -1,0 +1,38 @@
+<?php /** @var Mage_Core_Block_Template $this **/ ?>
+<?php $config = Mage::helper("cornerdrop_collect/config") ?>
+<div class="cdc-panel">
+    <div class="cdc-info">
+        <p><?php echo $this->__("Click & Collect from a CornerDrop location at a time that suits you.") ?></p>
+        <?php if ($config->getAdditionalFee()): ?>
+            <p><?php echo $this->__("This will add an additional %s fee to your order.", $config->getFormattedFee()) ?></p>
+        <?php endif; ?>
+    </div>
+    <div class="cdc-search-container">
+        <form action="" id="cdc-search-form" class="cdc-search-form">
+            <ul>
+                <li class="wide">
+                    <label for="cornerdrop-collect-search" class="cdc-search-label"><?php echo $this->__('Search city, town or postcode') ?></label>
+                    <input type="text" placeholder="Search city, town or postcode" name="cornerdrop-collect[search]" class="cdc-searchbox input-text" id="cornerdrop-collect-search"/>
+                    <button class="js-cdc-reset-button cdc-reset-button cdc-hidden" type="reset"><?php echo $this->__('Reset') ?></button>
+                    <button class="js-cdc-search-button cdc-search-button"><?php echo $this->__('Search'); ?></button>
+                </li>
+            </ul>
+        </form>
+        <i class="js-cdc-geolocation cdc-geolocation"><?php echo $this->__('Geolocation') ?></i>
+    </div>
+
+    <div class="js-cdc-search-results cdc-search-results cdc-hidden">
+    </div>
+
+    <a class="js-cdc-results-pager cdc-results-pager cdc-hidden" href="#"><?php echo $this->__('View more results') ?></a>
+
+    <div class="cdc-map-container">
+        <div id="cdc-map-canvas" class="cdc-map"></div>
+    </div>
+
+    <div class="js-cdc-store cdc-hidden cdc-store">
+        <span class="cdc-store-title"><?php echo $this->__('Selected Store:') ?></span>
+        <div class="js-cdc-store-details cdc-store-details"></div>
+        <a href="#" class="js-cdc-undo"><?php echo $this->__('Undo') ?></a>
+    </div>
+</div>

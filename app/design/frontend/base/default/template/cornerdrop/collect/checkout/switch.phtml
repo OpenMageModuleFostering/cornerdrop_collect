@@ -1,0 +1,31 @@
+<?php /** @var CornerDrop_Collect_Block_Checkout_Switch $this */ ?>
+<?php $_helper = Mage::helper("cornerdrop_collect"); ?>
+<?php if ($this->isEnabled()): ?>
+    <script type="text/javascript">
+        document.observe("dom:loaded", function () {
+            CornerDrop_Collect_Switch = new window.CornerDrop.Collect.Switch({
+                labels: {
+                    checkbox: <?php echo json_encode($this->getCheckboxLabel()) ?>,
+                    deactivateButton: "<?php echo $this->getModuleHelper()->__("Switch to home delivery") ?>",
+                    activateButton: "<?php echo $this->getModuleHelper()->__("Use CornerDrop") ?>"
+                },
+                value: <?php echo $this->getValue() ? "true" : "false" ?>
+            });
+
+            CornerDrop_Collect_UI = new window.CornerDrop.Collect.UI({
+                searchClass: new window.CornerDrop.Collect.Search({
+                    endpoint: '<?php echo $this->getUrl('cornerdrop_collect/search/') ?>',
+                    prepareFormCallback: shipping.newAddress.bind(shipping),
+                    regionUpdateCallback: shippingRegionUpdater.update.bind(shippingRegionUpdater)
+                }),
+                geolocationAPIClass: new window.CornerDrop.Collect.GeolocationAPI(),
+                gmapsClass: new window.CornerDrop.Collect.Gmaps({
+                    markerImage: '<?php echo $this->getImageUrl('droppoint_active.png') ?>'
+                }),
+                searchTemplate: <?php echo json_encode($this->getSearchTemplateHtml()) ?>,
+                initialState: <?php echo $this->getValue() ? "true" : "false" ?>,
+                termsAndConditionsLabel: "<?php echo $this->getModuleHelper()->__("By using this service you agree to the <a href='%s' target='_blank'>Terms &amp; Conditions</a>.", "https://cornerdrop.com/legal/consumer-terms-retailer") ?>"
+            });
+        });
+    </script>
+<?php endif; ?>

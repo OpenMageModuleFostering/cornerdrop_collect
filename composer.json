@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/CornerDrop_Collect",
+    "type": "magento-module",
+    "license": "CornerDrop",
+    "homepage": "",
+    "description": "Offer a click and collect solution to all your customers today.",
+    "authors": [
+    {
+        "name": "CornerDrop",
+        "email": "alasota@cornerdrop.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

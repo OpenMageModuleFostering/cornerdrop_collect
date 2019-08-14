@@ -1,0 +1,6 @@
+<?php /** @var Mage_Core_Block_Template $this */ ?>
+<?php /** @var Mage_Sales_Model_Order_Shipment $shipment */ ?>
+<?php $shipment = $this->getShipment() ?>
+<?php if (count($shipment->getAllTracks()) > 0): ?>
+    <p><?php echo Mage::helper("cornerdrop_collect")->__("Track your parcel and collect it from your chosen CornerDrop within 10 days of delivery") ?></p>
+<?php endif; ?>

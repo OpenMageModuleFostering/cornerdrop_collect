@@ -1,0 +1,172 @@
+<config>
+    <sections>
+        <cornerdrop_collect translate="label" module="cornerdrop_collect">
+            <label>CornerDrop</label>
+            <tab>sales</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>990</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <status translate="label">
+                    <label>Account Status</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <balance translate="label">
+                            <label>Credit Balance</label>
+                            <frontend_model>cornerdrop_collect/adminhtml_form_field_account_balance</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </balance>
+                        <last_checked translate="label">
+                            <label>Last Checked</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </last_checked>
+                    </fields>
+                </status>
+                <settings translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                        <api_key translate="label">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[Login to your CornerDrop account at <a href="https://cornerdrop.com/" target="_blank">www.cornerdrop.com</a> to obtain your API key.]]></comment>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_key>
+                        <api_uri>
+                            <label>API URL</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[Default value.]]></comment>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_uri>
+                        <code_email_template translate="label">
+                            <label>CornerDrop Customer Collection Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </code_email_template>
+                    </fields>
+                </settings>
+                <address_templates translate="label comment">
+                    <label>Address Templates</label>
+                    <comment><![CDATA[These address templates are appended to the Customer Address templates for any CornerDrop location addresses.]]></comment>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <text translate="label">
+                            <label>Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </text>
+                        <oneline translate="label">
+                            <label>Text One Line</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </oneline>
+                        <html translate="label">
+                            <label>HTML</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </html>
+                        <pdf translate="label">
+                            <label>PDF</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pdf>
+                    </fields>
+                </address_templates>
+                <fee_settings translate="label">
+                    <label>CornerDrop Fee Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <additional_fee translate="label">
+                            <label>Additional Fee</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <validate>validate-not-negative-number</validate>
+                            <comment><![CDATA[Additional fee (excluding tax) which is charged to the customer. Uses the default store currency.]]></comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </additional_fee>
+                        <include_tax translate="label">
+                            <label>CornerDrop Fee Include Tax?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[Is the 'Additional Fee' inclusive of tax?]]></comment>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </include_tax>
+                        <tax_class translate="label">
+                            <label>Tax Class</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tax/resource_class_collection</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tax_class>
+                    </fields>
+                </fee_settings>
+            </groups>
+        </cornerdrop_collect>
+    </sections>
+</config>

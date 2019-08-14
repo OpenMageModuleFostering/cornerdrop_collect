@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="cornerdrop_collect/settings/enable">
+                <file>cornerdrop/collect/switch.js</file>
+            </action>
+            <action method="addJs" ifconfig="cornerdrop_collect/settings/enable">
+                <file>cornerdrop/collect/search.js</file>
+            </action>
+            <action method="addJs" ifconfig="cornerdrop_collect/settings/enable">
+                <file>cornerdrop/collect/geolocationAPI.js</file>
+            </action>
+            <block type="core/text" name="google.api">
+                <action method="setText" ifconfig="cornerdrop_collect/settings/enable"><text><![CDATA[<script src='http://maps.google.com/maps/api/js?sensor=false'></script>]]></text></action>
+            </block>
+            <action method="addJs" ifconfig="cornerdrop_collect/settings/enable">
+                <file>cornerdrop/collect/gmaps.js</file>
+            </action>
+            <action method="addJs" ifconfig="cornerdrop_collect/settings/enable">
+                <file>cornerdrop/collect/ui.js</file>
+            </action>
+            <action method="addCss"><name>cornerdrop/collect/css/collect.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="cornerdrop_collect/checkout_switch" name="cornerdrop.collect.switch" before="-" template="cornerdrop/collect/checkout/switch.phtml">
+                <block type="core/template" name="cornerdrop.collect.switch.search" as="search_template" template="cornerdrop/collect/search.phtml" />
+            </block>
+        </reference>
+    </checkout_onepage_index>
+
+    <checkout_onepage_success>
+        <reference name="head">
+            <action method="addCss"><name>cornerdrop/collect/css/collect.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="cornerdrop_collect/checkout_success" name="cornerdrop.collect.success" template="cornerdrop/collect/checkout/success.phtml" />
+        </reference>
+    </checkout_onepage_success>
+
+    <sales_order_view>
+        <reference name="order_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_order_view>
+    <sales_guest_view>
+        <reference name="order_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_guest_view>
+    <sales_order_invoice>
+        <reference name="invoice_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_order_invoice>
+    <sales_guest_invoice>
+        <reference name="invoice_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_guest_invoice>
+    <sales_order_creditmemo>
+        <reference name="creditmemo_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_order_creditmemo>
+    <sales_guest_creditmemo>
+        <reference name="creditmemo_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_guest_creditmemo>
+
+    <sales_order_print>
+        <reference name="order_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_order_print>
+    <sales_guest_print>
+        <reference name="order_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_guest_print>
+    <sales_order_printinvoice>
+        <reference name="invoice_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_order_printinvoice>
+    <sales_guest_printinvoice>
+        <reference name="invoice_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_guest_printinvoice>
+    <sales_order_printcreditmemo>
+        <reference name="creditmemo_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_order_printcreditmemo>
+    <sales_guest_printcreditmemo>
+        <reference name="creditmemo_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_guest_printcreditmemo>
+
+    <sales_email_order_items>
+        <reference name="order_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_email_order_items>
+    <sales_email_order_invoice_items>
+        <reference name="invoice_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_email_order_invoice_items>
+    <sales_email_order_creditmemo_items>
+        <reference name="creditmemo_totals">
+            <block type="cornerdrop_collect/sales_order_totals" name="cornerdrop_fee_total" />
+        </reference>
+    </sales_email_order_creditmemo_items>
+
+    <sales_email_order_shipment_items>
+        <reference name="additional.product.info">
+            <block type="core/template" name="additional.product.info.cornerdrop" template="cornerdrop/collect/email/shipment.phtml" />
+        </reference>
+    </sales_email_order_shipment_items>
+
+</layout>

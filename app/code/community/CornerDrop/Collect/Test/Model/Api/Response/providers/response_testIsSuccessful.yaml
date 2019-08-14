@@ -1,0 +1,16 @@
+success:
+  response_code: 200
+  response_data_file: "response_valid.json"
+  is_successful: true
+nojson:
+  response_code: 200
+  response_data_file: "response_nojson.json"
+  is_successful: false
+httpfailcode:
+  response_code: 500
+  response_data_file: "response_valid.json"
+  is_successful: false
+apifailcode:
+  response_code: 200
+  response_data_file: "response_failed.json"
+  is_successful: false

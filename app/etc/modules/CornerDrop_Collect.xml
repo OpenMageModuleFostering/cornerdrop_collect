@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CornerDrop_Collect>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Sales />
+            </depends>
+        </CornerDrop_Collect>
+    </modules>
+</config>

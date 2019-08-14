@@ -1,0 +1,136 @@
+.cdc-panel:after,
+.cdc-search-container:after,
+.cdc-error:after,
+.cdc-search-results:after,
+.cdc-toggle-button:before {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.cdc-panel {
+    margin-bottom: 10px;
+}
+
+.cdc-info {
+    margin-bottom: 10px;
+}
+
+.cdc-search-container {
+    margin-bottom: 10px;
+}
+
+.cdc-search-form {
+    display: inline-block;
+    position: relative;
+    max-width: calc(100% - 35px);
+    width: 365px;
+}
+
+.cdc-search-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.cdc-search-results ul {
+    display: block;
+}
+
+.cdc-result {
+    cursor: pointer;
+    display: none;
+    margin: 10px 0;
+}
+
+.cdc-result-item-title {
+    display: block;
+    font-weight: bold;
+}
+
+.cdc-result-item-body {
+    display: block;
+}
+
+.cdc-store {
+    clear: both;
+    padding: 20px 0;
+}
+
+.cdc-store-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cdc-map-container {
+    margin: 10px auto;
+}
+
+.cdc-map {
+    height: 300px;
+    width: 100%;
+}
+
+.cdc-map:empty {
+    height: 0;
+}
+
+/* Classes */
+.cdc-hidden {
+    display: none;
+}
+
+.cdc-error {
+    clear: both;
+    color: #df280a;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.cdc-show {
+    display: inherit;
+}
+
+.cdc-active {
+    opacity: 1;
+}
+
+@media only screen and (min-width: 770px) {
+    .cdc-search-results {
+        float: left;
+        overflow: scroll;
+        max-height: 370px;
+        width: 35%;
+    }
+
+    .cdc-store {
+        clear: none;
+        float: left;
+        width: 35%;
+    }
+
+    .cdc-map-container {
+        float: right;
+        width: 65%;
+    }
+
+    .cdc-map {
+        height: 350px;
+    }
+
+    .cdc-result {
+        display: inherit;
+    }
+
+    /* This hides the pager for larger screens where it is not
+     * used. Conditional JS is therefore not required.
+     */
+    .js-cdc-results-pager {
+        display: none;
+    }
+}
